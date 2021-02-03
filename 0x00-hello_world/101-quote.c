@@ -1,9 +1,9 @@
 #include <unistd.h>
 
 /**
- * main - writes text
- * description - uses write to stdout
- * Return: returns 1
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 
