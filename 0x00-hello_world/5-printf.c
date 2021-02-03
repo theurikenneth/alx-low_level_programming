@@ -4,7 +4,6 @@
 * main - ouptputs the message
 * Description : uses printf
 * Return : void
-*
 */
 int main(void)
 {
