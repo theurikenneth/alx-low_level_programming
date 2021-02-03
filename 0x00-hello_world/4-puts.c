@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * int main: this is the entry point
- * Description: uses puts top output
- * Return - it is always 0 for success
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
