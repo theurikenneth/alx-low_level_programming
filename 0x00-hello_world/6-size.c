@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - prints standard variable
- * Description: uses sizeof to retrieve size 
- * Return: 0
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
-* main - ouptputs the message
-* Description : uses printf
-* Return : void
+* main - Entry point
+*
+* Return: Always 0 (Success)
 */
 int main(void)
 {
