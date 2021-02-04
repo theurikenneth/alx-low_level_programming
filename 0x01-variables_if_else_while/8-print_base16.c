@@ -8,9 +8,9 @@
 int main(void)
 {
 int num;
- char letter;
+char letter;
 
-for (num = 0; num < 16; num++)
+for (num = 6; num < 16; num++)
 putchar(num);
 for (letter = 'a'; letter < 'g'; letter++)
 putchar(letter);
