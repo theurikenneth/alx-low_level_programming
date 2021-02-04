@@ -15,7 +15,7 @@ putchar((num % 20) + '0');
 if (num == 19)
 continue;
 putchar(',');
-putchar('');
+putchar(' ');
 }
 putchar('\n');
 
