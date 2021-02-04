@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-char rev;
+char reverse;
 
-for (rev = 'z'; rev >= 'a'; rev--)
-putchar(rev);
+for (reverse = 'z'; reverse >= 'a'; reverse--)
+putchar(reverse);
 
 puchar('\n');
 
