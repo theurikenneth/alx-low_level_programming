@@ -12,7 +12,7 @@ char rev;
 for (rev = 'z'; rev >= 'a'; rev--)
 putchar(rev);
 
-puchar('\n')
+puchar('\n');
 
 return (0);
 }
