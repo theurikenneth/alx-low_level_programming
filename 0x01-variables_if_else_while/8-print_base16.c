@@ -10,8 +10,9 @@ int main(void)
 int num;
 char letter;
 
-for (num = 6; num < 16; num++)
-putchar(num);
+for (num = 0; num < 10; num++)
+putchar((num % 10) + '0');
+
 for (letter = 'a'; letter < 'g'; letter++)
 putchar(letter);
 
