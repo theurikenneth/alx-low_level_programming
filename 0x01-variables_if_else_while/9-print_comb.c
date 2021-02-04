@@ -9,10 +9,10 @@ int main(void)
 {
 int num;
 
-for (num = 0; num <= 19; num++)
+for (num = 0; num < 10; num++)
 {
-putchar((num % 20) + '0');
-if (num == 19)
+putchar((num % 100) + '0');
+if (num < 9)
 continue;
 putchar(',');
 putchar(' ');
