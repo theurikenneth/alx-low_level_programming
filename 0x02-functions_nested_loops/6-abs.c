@@ -6,10 +6,7 @@
  *
  * Return: returns n if positive and -n if negative
  */
-int _abs(int r)
+int _abs(int n)
 {
-if (r >= 0)
-return (n);
-else
-return (-n);
+return (n > 0 ? n : -n);
 }
