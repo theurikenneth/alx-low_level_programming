@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "holberton.h"
 
 /**
  * main - Entry point
@@ -7,6 +7,9 @@
  */
 int main(void)
 {
-printf("Holberton\n")
-return (0)
+char *str = "Holberton\n";
+
+while (*str != '\0')
+_putchar(*str++);
+return (0);
 }
