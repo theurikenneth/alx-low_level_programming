@@ -4,7 +4,6 @@
 /**
  * print_to_98 - prints naturals from the starting number 98
  * @n: the starting number
- * @d: stores the value
  *
  * Return: void
  */
