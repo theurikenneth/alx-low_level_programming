@@ -1,26 +1,26 @@
 #include "holberton.h"
 
 /**
- * print_sign - checks whether a number is +, 0 or -.
- * @n: the integer to be tested
+ * print_sign - Prints the sign of a number
+ * @n: The number to be checked
  *
- * Return: 1 if +, 0 if 0 and -1 if -
+ * Return: 1 for positive num, -1 for negative num or zero for anything else
  */
 int print_sign(int n)
-}
-if (n > 0)
 {
-_putchar(43);
-return (1);
-}
-else if (n < 0)
-{
-_putchar(45);
-return (-1);
-}
-else
-{
-_putchar(48);
-return (0);
-}
+  if (n > 0)
+    {
+      _putchar(43);
+      return (1);
+    }
+  else if (n < 0)
+    {
+      _putchar(45);
+      return (-1);
+    }
+  else
+    {
+      _putchar(48);
+      return (0);
+    }
 }
