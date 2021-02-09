@@ -8,22 +8,27 @@
  */
 int main(void)
 {
-long c, f, l, i:
+long double fib1;
+long double fib2;
+long double fib3;
+int n;
 
-c= 0;
-f = 3;
-i = 1;
-l = 2;
-printf("1, 2, ");
-while (c < 47)
+n = 1;
+fib1 = 1;
+fib2 = 1;
+printf("%.Lf, ", fib2);
+while (n <= 49)
 {
-printf("%ld, ", f);
-i = l;
-l = f;
-f = i +l;
-c++;
+fib3 = fib1 + fib2;
+printf("%.Lf", fib3);
+n++;
+fib1 = fib2;
+fib2 = fib3;
+if (n != 50)
+{
+printf(", ");
 }
-printf("%ld\n", f);
-
+}
+putchar('\n');
 return (0);
 }
