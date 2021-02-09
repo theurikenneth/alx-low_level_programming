@@ -19,7 +19,7 @@ d = 1;
 while (n != 98)
 {
 printf("%d, ", n);
-n +=d;
+n += d;
 }
 printf("%d\n", n);
 }
