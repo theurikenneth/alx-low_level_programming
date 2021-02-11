@@ -19,7 +19,7 @@ if (n % i == 0)
 {
 if (n == i)
 {
-printf("%d\n", i);
+printf("%ld\n", i);
 break;
 }
 j = n / i;
