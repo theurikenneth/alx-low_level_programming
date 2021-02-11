@@ -8,7 +8,9 @@
  */
 int main(void)
 {
-int i, j, n;
+long int i;
+long int n;
+long int j;
 
 n = 612852475143;
 for (i = 1; i <= n; i++)
