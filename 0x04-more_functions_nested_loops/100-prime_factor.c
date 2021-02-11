@@ -20,6 +20,9 @@ if (n == i)
 printf("%d\n", i);
 break;
 }
+j = n / i;
+n = j;
+i = 1;
 }
 }
 return (0);
