@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_line - prints character _
+ * print_diagonal - prints character _
  *@n: number of times to print character _
  * Return: void
  */
