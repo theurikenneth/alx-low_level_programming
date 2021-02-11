@@ -5,7 +5,7 @@
  *@n: number of times to print character _
  * Return: void
  */
-void print_line(int n)
+void print_diagonal(int n)
 {
 int a, b;
 if (n <= 0)
