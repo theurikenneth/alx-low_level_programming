@@ -13,7 +13,7 @@ a = 0;
 while (*(str + 1) != '\0')
 {
 _putchar(*(str + a));
- a++;
+a++;
 }
 _putchar('\n');
 }
