@@ -13,5 +13,4 @@ int temp;
 temp = *a;
 *a = *b;
 *b = temp;
-_putchar(a, b);
 }
