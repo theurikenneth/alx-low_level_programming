@@ -9,16 +9,22 @@
 void rev_string(char *s)
 {
 int i, j, l;
-char *s, *s2;
+char *a, *s2;
 
-for (i = 0; s[i] != '\0'; i++)
-l++;
-j = 0;
-
-for (i = l - 1; i >= 0; i--)
+a = s;
+while (s[j] != '\0')
 {
-s2[j] = s[i];
 j++;
 }
-s2[j] = '\0';
+for (l = 1; l < j; l++)
+{
+a++;
+}
+for (i = 0; i < (j / 2); i++)
+{
+s2 = s[i];
+s[i] = *a;
+*a = s2;
+a--;
+}
 }
