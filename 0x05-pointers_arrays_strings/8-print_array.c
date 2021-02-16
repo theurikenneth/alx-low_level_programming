@@ -18,5 +18,5 @@ printf("%d", a[i]);
 if (i + 1 < n)
 printf(", ");
 }
-printf('\n');
+_putchar('\n');
 }
