@@ -1,6 +1,6 @@
 #include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_array - prints an array
@@ -15,7 +15,7 @@ int i;
 for (i = 0; i < n; i++)
 {
 printf("%d", a[i]);
-if (i + 1 < n)
+if (i != n - 1)
 {
 printf(", ");
 }
