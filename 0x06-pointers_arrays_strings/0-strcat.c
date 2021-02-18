@@ -4,19 +4,17 @@
  * _strcat - concetenates two strings
  * @dest: string is appended to dest
  * @src: string to be appended
- * Return: void
+ * Return: dest
  */
 char *_strcat(char *dest, char *src);
 {
-int a, b;
-for (a = 0; dest[a] != '\0'; a++)
-{
+int i = 0, len = 0;
 
-}
-for (j = 0; src[b] != '\0'; b++)
-{
-dest[a] = src[b];
-a++;
-}
+while (dest[i++])
+len++;
+
+for (i = 0; src[i]; i++)
+dest[len++] = src[i];
+
 return (dest);
 }
