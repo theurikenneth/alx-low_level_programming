@@ -1,6 +1,5 @@
 #include "holberton.h"
-
-#define SEPARATORS (" \t\n,;.!?\"(){}")
+#include <stdio.h>
 
 /**
  * cap_string - capitalizes all words of a string
@@ -9,29 +8,21 @@
  */
 char *cap_string(char *s)
 {
-int i;
-for (i = 0; s[i] != '\0'; i++)
+int a = 0, i;
+int cspc = 13;
+char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
+
+while (s[a])
 {
-if (i == 0)
+i = 0;
+while (i < cspc)
 {
-if ((s[i] >= 'a' && s[i] <= 'z'))
-s[i] = s[i] - 32;
-continue;
+if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+s[a] -= 32;
+
+i++;
 }
-if (s[i] == ' ')
-{
-++i;
-if (s[i] >= 'a' && s[i] <= 'z')
-{
-s[i] = s[i] - 32;
-continue;
-}
-}
-else
-{
-if ((s[i] >= 'A') && (s[i] <= 'Z') SEPARATORS)
-s[i] = s[i] + 32;
-}
+a++;
 }
 return (s);
 }
