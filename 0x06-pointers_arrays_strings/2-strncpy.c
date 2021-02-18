@@ -2,20 +2,24 @@
 
 /**
  * _strncpy - copies a string
- * @dest: pointer for the first string
- * @src: pointer for the second string
- * @n: string is n bytes
- * Return: void
+ * @dest: the destination buffer
+ * @src: the source buffer
+ * @n: the number of bytes to copy
+ * Return: pointer to destination buffer
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-int a;
+char *ret = dest;
 
-for (a = 0; dest[a] != '\0'; a++)
+while (*src && n)
 {
-dest[a] = src[a];
+*dest++ = *src++;
+n--;
 }
-src[a] = '\0';
-return (dest);
+
+while (n--)
+*dest++ = '\0';
+
+return (ret);
 }
