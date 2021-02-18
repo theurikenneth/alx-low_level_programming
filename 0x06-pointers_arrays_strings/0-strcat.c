@@ -6,16 +6,17 @@
  * @src: string to be appended
  * Return: dest
  */
-char *_strcat(char *dest, char *src);
+char *_strcat(char *dest, char *src)
 {
-int i = 0, len = 0;
+char *ret = dest;
 
-while (dest[i] != '\0')
-i++;
+while (*dest)
+dest++;
 
-while (src[len] != '\0')
-dest[i++] = src[len++];
-dest[i] = '\0';
+while (*src)
+*dest++ = *src++;
 
-return (dest);
+*dest = *src;
+
+return (ret);
 }
