@@ -15,9 +15,9 @@ char *ret = s, *rot13a = ROT13A, *rot13b = ROT13B;
 
 int i = 0;
 
-for (; *s; s++)
+for (; *s != '\0'; s++)
 {
-for (i = 0; rot13a[i]; i++)
+for (i = 0; rot13a[i] != '\0'; i++)
 if (*s == rot13a[i])
 {
 *s = rot13b[i];
