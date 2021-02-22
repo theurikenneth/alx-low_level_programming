@@ -10,17 +10,18 @@
  */
 void print_diagsums(int *a, int size)
 {
-int i, j, sum = 0;
+int i, j = 0, sum = 0;
 
-for (i = 0; i < size; i++)
+for (i = 0; i < size * size;)
 {
-for (j = 0; j < size; j++)
+j = j + a[i];
+i = i + size + 1;
+}
+
+for (i = size - 1; i < (size * size) - 1;)
 {
-if (i == j || i + j == size - 1)
-{
-sum = sum + a[(i) * (j)];
+sum = sum + a[i];
+i = i + (size - 1);
 }
-}
-}
-printf("%d\n", sum);
+printf("%d, %d\n", j, sum);
 }
