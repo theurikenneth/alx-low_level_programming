@@ -17,7 +17,7 @@ for (; ; a++)
 {
 if (s[a] == c)
 return (&(s[a]));
-if (s[a] != c)
+if (!s[a])
 return (NULL);
 }
 }
