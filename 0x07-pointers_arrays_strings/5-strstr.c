@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stddef.h>
 
 /**
  * _strstr - locate the substring
@@ -11,7 +12,7 @@ char *_strstr(char *haystack, char *needle)
 {
 int i = 0, j = 0;
 
-while (haystack[i]);
+while (haystack[i])
 {
 while (needle[j])
 {
@@ -27,5 +28,5 @@ return (haystack + i);
 }
 i++;
 }
-return ('\0');
+return (NULL);
 }
