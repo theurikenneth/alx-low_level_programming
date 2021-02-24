@@ -23,18 +23,18 @@ return (check_palindrome(s));
  */
 int check_palindrome(char *s)
 {
-int i, c = 0, n;
-n = _strlen_recursion(s) + 1;
+int n = _strlen_recursion(s);
 
-for (i = 0; i < n / 2; i++)
+if (*s == s[n - 1])
 {
-if (s[i] == s[n - i - 1])
-c++;
+s++;
+n--;
 }
-if (c == i)
-return (1);
 else
+{
 return (0);
+}
+return (1);
 }
 
 /**
