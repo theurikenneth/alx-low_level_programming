@@ -1,27 +1,8 @@
+#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-/**
- * isnumber - determines if input is a number or not
- * 
- * @number: number to check
- * Return: 1 if number, 0 if not
- */
-int isnumber(char *number)
-{
-int i;
-
-for (i = 0; number[i] != '\0')
-{
-if (isdigit(number[i]))
-i++;
-else
-return (0);
-}
-return (1);
-}
 
 /**
  * main - prints the number of arguments
@@ -31,27 +12,17 @@ return (1);
  */
 int main(int argc, char *argv[])
 {
-int results, i;
+int results = 0, i = 0, j = 1;
 
-results = 0;
-if (argc < 3)
+for (j = 1; j < argc; j++)
 {
-printf("0\n");
-return (1);
-}
-i = 1;
-while (1 < argc)
-{
-if (isnumber(argv[i]))
-{
-results += atoi(argv[i]);
-}
-else
+for (i = 0; argv[j][i]; i++)
+if (argv[j][i] > '9' || argv[j][i] < '0')
 {
 printf("Error\n");
 return (1);
 }
-i++;
+results += strtol(argv[j], NULL, 10);
 }
 
 printf("%d\n", results);
