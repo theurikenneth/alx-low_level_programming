@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * alloc_grid - returns a pointer to a 2D array
@@ -10,31 +11,37 @@
  */
 int **alloc_grid(int width, int height)
 {
-int **twoD, i, j;
+int **twoD, i, j, l, *p;
 
-if (i <= 0 || j <= 0)
+if (width <= 0 || height <= 0)
 return (NULL);
 
-twoD = malloc(height * sizeof(int *));
+twoD = (int **)malloc(height * sizeof(int *));
 
 if (twoD == NULL)
 return (NULL);
 
 for (i = 0; i < height, i++)
 {
-if (twoD[i] == NULL)
+(twoD + i) = (int *)malloc(width * sizeof(int));
 {
-for (; i >= 0; i--)
-free(twoD[i]);
-
-free(twoD);
+if (twoD + i == NULL)
+{
+for (i = 0; i < height; i++)
+{
+p = twoD[i];
+free(p);
+}
+free(matrix);
 return (NULL);
 }
 }
 for (i = 0; i < height; i++)
 {
 for (j = 0; j < width; j++)
+{
 twoD[i][j] = 0;
+}
 }
 
 return (twoD);
