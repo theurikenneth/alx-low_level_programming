@@ -35,7 +35,7 @@ for (i = 0; i < height; i++)
 p = twoD[i];
 free(p);
 }
-free(matrix);
+free(twoD);
 return (NULL);
 }
 }
