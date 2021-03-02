@@ -16,18 +16,20 @@ int i, l = 0;
 if (str == NULL)
 return (NULL);
 
-for (i = 0; str[i]; i++)
+while (str[l] != '\0')
+{
+l++;
+}
 l++;
 
-duplicate = malloc((len + 1) * sizeof(char));
+duplicate = malloc(l * sizeof(char));
 
 if (duplicate == NULL)
 return (NULL);
 
-for (i = 0, str[i]; i++)
+for (i = 0, str[i] != '\0'; i++)
+{
 duplicate[i] = str[i];
-
-duplicate[l] = '\0';
-
+}
 return (duplicate);
 }
