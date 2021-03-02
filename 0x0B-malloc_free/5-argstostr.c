@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * argstostr - concatenates all the program's arguments
@@ -22,7 +23,7 @@ for (j = 0; av[arg][j]; j++)
 len++;
 }
 
-str = malloc((len + 1) * sizeof(char));
+ str = (char *)malloc((len + 1) * sizeof(char));
 
 if (str == NULL)
 return (NULL);
