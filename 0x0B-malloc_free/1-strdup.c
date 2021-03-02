@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _strdup - returns a pointer to a new string
