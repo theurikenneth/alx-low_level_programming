@@ -19,13 +19,14 @@ return (NULL);
 for (l = 0; str[l] != '\0'; l++)
 ;
 
-duplicate = malloc(l * sizeof(char));
+duplicate = (char *)malloc(l + 1 * sizeof(char));
 
-if (duplicate == NULL)
+if (duplicate != NULL)
 {
 for (i = 0; str[i] != '\0'; i++)
 duplicate[i] = str[i];
-} else
+}
+else
 {
 return (NULL);
 }
