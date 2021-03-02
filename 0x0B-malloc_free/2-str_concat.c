@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * str_concat - concatenates two strings
@@ -22,7 +23,7 @@ s2 = "";
 for (i = 0; s1[i] || s2[i]; i++)
 l++;
 
-concat_str = malloc(l * (sizeof(char)));
+concat_str = (char *)malloc(l * (sizeof(char)));
 
 if (concat_str == NULL)
 return (NULL);
