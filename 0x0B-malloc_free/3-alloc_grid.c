@@ -16,16 +16,19 @@ int **twoD, i, j, l, *p;
 if (width <= 0 || height <= 0)
 return (NULL);
 
-twoD = (int **)malloc(height * sizeof(int *));
+twoD = malloc(height * sizeof(int *));
 
 if (twoD == NULL)
+{
+free(twoD);
 return (NULL);
+}
 
 for (i = 0; i < height, i++)
 {
-(twoD + i) = (int *)malloc(width * sizeof(int));
+twoD[i] = malloc(width * sizeof(int));
 {
-if (twoD + i == NULL)
+if (twoD  == NULL)
 {
 for (i = 0; i < height; i++)
 {
