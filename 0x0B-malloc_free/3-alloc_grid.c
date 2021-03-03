@@ -22,16 +22,18 @@ twoD = (int **)malloc(sizeof(int *) * height);
 if (twoD == NULL)
 return (NULL);
 
-for (i = 0; i < height; i++)
+for (i = 0; i < height; ++i)
 {
 twoD[i] = (int *)malloc(sizeof(int) * width);
 
 if (twoD[i]  == NULL)
 {
+while (--i > -1)
+free(twoD[i]);
 free(twoD);
 return (NULL);
 }
-for (j = 0; j < width; j++)
+for (j = 0; j < width; ++j)
 twoD[i][j] = 0;
 
 }
