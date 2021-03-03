@@ -27,17 +27,20 @@ return (NULL);
 for (i = 0; i < height; i++)
 {
 twoD[i] = malloc(sizeof(int) * width);
-if (twoD  == NULL)
+
+if (twoD[i]  == NULL)
 {
-for (--i; i >= 0; i--)
+for (; i >= 0; i--)
 free(twoD[i]);
+
 free(twoD);
 return (NULL);
 }
 }
 for (i = 0; i < height; i++)
+{
 for (j = 0; j < width; j++)
 twoD[i][j] = 0;
-
+}
 return (twoD);
 }
