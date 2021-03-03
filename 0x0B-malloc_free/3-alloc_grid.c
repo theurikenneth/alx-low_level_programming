@@ -21,6 +21,7 @@ twoD = malloc(sizeof(int) * height);
 
 if (twoD == NULL)
 {
+free(twoD);
 return (NULL);
 }
 
