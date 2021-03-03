@@ -24,7 +24,7 @@ if (twoD == NULL)
 return (NULL);
 }
 
-for (i = 0; i < height, i++)
+for (i = 0; i < height; i++)
 {
 twoD[i] = malloc(sizeof(int) * width);
 if (twoD  == NULL)
@@ -35,7 +35,7 @@ free(twoD);
 return (NULL);
 }
 }
-for (i = 0; i < height, i++)
+for (i = 0; i < height; i++)
 for (j = 0; j < width; j++)
 twoD[i][j] = 0;
 
