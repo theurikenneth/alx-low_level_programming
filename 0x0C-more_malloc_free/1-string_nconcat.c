@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+int _strlen(char *s);
 
 /**
  * string_nconcat - concatenates two strings
@@ -39,4 +40,20 @@ for (n = 0; n < n2; ++n, ++concat)
 *concat = '\0';
 
 return (concat - n1 - n2);
+}
+
+/**
+ * _strlen - returns the string length
+ * @s: string pointer
+ *
+ * Return: string length
+ */
+int _strlen(char *s)
+{
+int c = 0;
+
+while (s[c] != '\0')
+c++;
+
+return (c);
 }
