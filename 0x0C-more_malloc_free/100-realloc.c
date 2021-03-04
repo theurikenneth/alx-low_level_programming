@@ -1,23 +1,5 @@
 #include "holberton.h"
-char *_memcpy(char *dest, char *src, unsigned int n);
-
-/**
- * _memcpy - copy of the memory area
- * @dest: pointer to the target area start
- * @src: pointer to the source area start
- * @n: number of bytes
- *
- * Return: pointer to dest
- */
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-unsigned int i;
-
-for (i = 0; i < n; i++)
-dest[i] = src[i];
-
-return (dest);
-}
+#include <stdlib.h>
 
 /**
  * _realloc - relocates memory using malloc and free
@@ -30,25 +12,27 @@ return (dest);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 char *new_ptr;
+unsigned int i;
 
+if (new_size == old_size)
+return (ptr);
 if (ptr == NULL)
-return (malloc(new_size));
-
-if (new_size == 0)
+{
+newspace = malloc(new_size);
+if (newspace == NULL)
+return (NULL);
+return (newspace);
+}
+if (new_size == 0 && ptr != NULL)
 {
 free(ptr);
 return (NULL);
 }
-
-if (new_size == old_size)
-return (ptr);
-
-newptr = malloc(new_size);
-if (newptr == NULL)
+newspace = malloc(new_size);
+if (newspace == NULL)
 return (NULL);
-
-_memcpy(newptr, ptr, old_size);
+for (i = 0; i < old_size && i < new_size; i++)
+newspace[i] = ((char *)ptr)[i];
 free(ptr);
-
-return (new_ptr);
+return (newspace);
 }
