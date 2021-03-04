@@ -20,20 +20,26 @@ s1 = "";
 if (s2 == NULL)
 s2 = "";
 
-for (n1 = 0; s1[n1] != '\0'; n1++)
-;
-for (n2 = 0; s2[n2] != '\0'; n2++)
-;
+if (s1)
+{
+while (s1[n1])
+++n1;
+}
+if (s2)
+{
+while (n2 < n && s2[n2])
+++n2;
+}
 
 concat = malloc(sizeof(char) * n1 + n2 + 1));
 
 if (concat == NULL)
 return (NULL);
 
-for (n = 0, s1[n] != '\0'; n++)
+for (n = 0, n < n1; ++n, ++concat)
 *concat = s1[n];
 
-for (n = 0; s2[n2] != '\0'; n++)
+for (n = 0; n < n2; ++n, ++concat)
 *concat = s2[n];
 
 *concat = '\0';
