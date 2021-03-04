@@ -47,10 +47,11 @@ return (concat);
  */
 int _strlen(char *s)
 {
-int c = 0;
+int a;
 
-while (s[c] != '\0')
-c++;
+a = 0;
+while (s[a] != '\0')
+a++;
 
-return (c);
+return (a);
 }
