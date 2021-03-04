@@ -13,8 +13,8 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 {
 unsigned int i;
 
-for (i = 0; i < n; ++i, ++src)
-dest[i] = *src;
+for (i = 0; i < n; i++)
+dest[i] = src[i];
 
 return (dest);
 }
@@ -29,25 +29,25 @@ return (dest);
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-void *new_ptr;
+char *new_ptr;
 
-if (new_size == old_size)
-return (ptr);
-
-if (!ptr)
+if (ptr == NULL)
 return (malloc(new_size));
 
-if (!new_size)
+if (new_size == 0)
 {
 free(ptr);
 return (NULL);
 }
 
-new_ptr = malloc(new_size);
-if (!new_ptr)
+if (new_size == old_size)
+return (ptr);
+
+newptr = malloc(new_size);
+if (newptr == NULL)
 return (NULL);
 
-_memcpy(new_ptr, ptr, old_size < new_size ? old_size : new_size);
+_memcpy(newptr, ptr, old_size);
 free(ptr);
 
 return (new_ptr);
