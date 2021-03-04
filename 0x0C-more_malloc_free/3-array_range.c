@@ -10,21 +10,20 @@
 int *array_range(int min, int max)
 {
 int *array;
-int i, j, count;
+unsigned int count;
 
 if (min > max)
 return (NULL);
 
-count = ((max - min) + 1)
-array = malloc(sizeof(int) * count);
+count = max - min;
+array = malloc(sizeof(int) * (count + 1));
 
-if (array ==NULL)
+if (array == NULL)
 return (NULL);
 
-j = min;
+do {
+*array++ = min++;
+} while (min <= max);
 
-for (i = 0; i < count; i++, j++)
-array[i] = j;
-
-return (array);
+return (array - count - 1);
 }
