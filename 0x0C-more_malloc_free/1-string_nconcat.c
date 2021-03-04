@@ -13,54 +13,29 @@ int _strlen(char *s);
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 char *concat;
-unsigned int n1 = 0, n2 = 0;
-unsigned int a, b, f, d, e, length;
+unsigned int a, b;
 
 if (s1 == NULL)
 s1 = "";
 if (s2 == NULL)
 s2 == "";
-n1 = _strlen(s1);
-n2 = _strlen(s2);
-length = n1 + n2;
 
-if (n >= n2)
-concat = malloc(sizeof(char) * (length + 1));
+if ((int) n > _strlen(s2))
+n = _strlen(s2);
 
-else
-concat = malloc(sizeof(char) * (length + 1));
+concat = malloc(_strlen(s1) + n + 1);
 
 if (concat == NULL)
 return (NULL);
 
-for (d = 0; d < n1; d++)
-{
-*(concat + d) = *(s1 + d);
-}
-if (n >= n2)
-{
-a = n1;
-e = 0;
-while (a < length)
-{
-*(concat + a) = *(s2 + e);
-a++;
-e++;
-}
-*(concat + a) = '\0';
-}
-else
-{
-b = n1;
-f = 0;
-while (f < n)
-{
-*(concat + b) = *(s2 + f);
-b++;
-f++;
-}
-*(concat + b) = '\0';
-}
+for (a = 0, b = 0; s1[a] != '\0'; a++, b++)
+concat[b] = s1[a];
+
+for (a = 0; a != n, a++, b++)
+concat[b] = s2[a];
+
+concat[b] = '\0';
+
 return (concat);
 }
 
