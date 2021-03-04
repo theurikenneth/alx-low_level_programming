@@ -18,21 +18,21 @@ if (new_size == old_size)
 return (ptr);
 if (ptr == NULL)
 {
-newspace = malloc(new_size);
-if (newspace == NULL)
+new_ptr = malloc(new_size);
+if (new_ptr == NULL)
 return (NULL);
-return (newspace);
+return (new_ptr);
 }
 if (new_size == 0 && ptr != NULL)
 {
 free(ptr);
 return (NULL);
 }
-newspace = malloc(new_size);
-if (newspace == NULL)
+new_ptr = malloc(new_size);
+if (new_ptr == NULL)
 return (NULL);
 for (i = 0; i < old_size && i < new_size; i++)
-newspace[i] = ((char *)ptr)[i];
+new_ptr[i] = ((char *)ptr)[i];
 free(ptr);
-return (newspace);
+return (new_ptr);
 }
