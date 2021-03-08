@@ -1,4 +1,8 @@
 #include "dog.h"
+#include <stdlib.h>
+
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 
 /**
  * new_dog - creates a new dog
