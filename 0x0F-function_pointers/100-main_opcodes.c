@@ -28,7 +28,7 @@ exit(2);
 }
 
 while (b--)
-printf("%02x%c", *mem++ : '\n');
+printf("%02x%c", *mem++, b ? ' ' : '\n');
 
 return (0);
 }
