@@ -18,13 +18,15 @@ puts("Error");
 exit(98);
 }
 
-if (get_op_func(argv[2]) == NULL)
+f = get_op_func(argv[2]);
+
+if (!f)
 {
-printf("Error\n");
+puts("Error");
 exit(99);
 }
 
-printf("%d\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
+printf("%d\n", f(atoi(argv[1]), atoi(argv[3])));
 
 return (0);
 }
