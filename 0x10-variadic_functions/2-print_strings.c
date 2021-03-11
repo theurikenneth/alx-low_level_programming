@@ -13,7 +13,7 @@ va_list args;
 unsigned int count = n;
 const char *str = NULL;
 
-va_strat(args, n);
+va_start(args, n);
 if (!separator)
 separator = "";
 while (count--)
