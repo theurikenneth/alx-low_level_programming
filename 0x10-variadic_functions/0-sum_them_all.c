@@ -13,6 +13,9 @@ va_list args;
 int sum = 0;
 int i;
 
+if (n == 0)
+return (0);
+
 /* initialize valist for the n number of arguments */
 va_start(args, n);
 
