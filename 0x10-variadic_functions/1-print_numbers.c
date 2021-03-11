@@ -12,7 +12,7 @@ va_list args:
 unsigned int remaining = n;
 
 va_start(args, n);
-if (separator == NULL)
+if (!separator)
 separator = "";
 
 while (remaining--)
