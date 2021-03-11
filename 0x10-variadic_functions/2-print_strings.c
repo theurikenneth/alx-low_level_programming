@@ -19,7 +19,7 @@ separator = "";
 while (count--)
 {
 str = va_arg(args, const char *);
-printf("%s", str ? str : '(nil)');
+printf("%s", str ? str : "(nil)");
 
 if (count)
 printf("%s", separator);
