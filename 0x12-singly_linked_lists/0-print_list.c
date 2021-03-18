@@ -1,20 +1,27 @@
 #include "lists.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * print_listint - fills the memory with a constant byte
- * @h: the dog's owner
+ * print_list - fills the memory with a constant byte
+ * @h: linked list
+ *
  * Return: the number
  */
-size_t print_listint(const listint_t *h)
+size_t print_list(const list_t *h)
 {
-int n = 0;
+size_t n = 0;
 
 while (h != NULL)
 {
-printf("%d\n", h->n);
-n++;
+if (h->str == NULL)
+printf("[0] (nil)\n");
+else
+printf("[%d] %s\n", h->len, h->str);
+
 h = h->next;
+n++;
 }
+
 return (n);
 }
