@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * print_list - fills the memory with a constant byte
@@ -11,9 +12,9 @@ size_t n = 0;
 
 while (h != NULL)
 {
+n++;
 printf("%d\n", h->n);
 h = h->next;
-n++;
 }
 return (n);
 }
