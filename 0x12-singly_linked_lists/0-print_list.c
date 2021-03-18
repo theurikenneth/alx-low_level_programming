@@ -2,18 +2,18 @@
 #include <stdio.h>
 
 /**
- * print_list - fills the memory with a constant byte
+ * print_listint - fills the memory with a constant byte
  * @h: the dog's owner
  * Return: the number
  */
 size_t print_listint(const listint_t *h)
 {
-size_t n = 0;
+int n = 0;
 
 while (h != NULL)
 {
-n++;
 printf("%d\n", h->n);
+n++;
 h = h->next;
 }
 return (n);
