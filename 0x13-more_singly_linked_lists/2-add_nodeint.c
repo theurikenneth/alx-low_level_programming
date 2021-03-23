@@ -21,5 +21,5 @@ new_list->n = n;
 new_list->next = *head;
 *head = new_list;
 
-return (*head);
+return (new_list);
 }
