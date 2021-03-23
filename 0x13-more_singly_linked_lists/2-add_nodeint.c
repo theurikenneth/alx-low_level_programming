@@ -15,7 +15,7 @@ listint_t *new_list;
 if (!head)
 return (NULL);
 
-new_list = malloc(sizeof(listint_t));
+new_list = (listint_t *) malloc(sizeof(listint_t));
 if (new_list == NULL)
 return (NULL);
 
@@ -23,5 +23,5 @@ new_list->n = n;
 new_list->next = *head;
 *head = new_list;
 
-return (new_list);
+return (*head);
 }
