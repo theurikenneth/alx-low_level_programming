@@ -1,5 +1,8 @@
 #include "lists.h"
 
+size_t looped_listint_count(listint_t *h);
+size_t free_listint_safe(listint_t **head);
+
 /**
  * free_listint_safe - frees all elements of a linked list
  * @head: pointer to the first node
@@ -8,33 +11,78 @@
  */
 size_t free_listint_safe(listint_t **head)
 {
-listptr_t *listptr_head = NULL;
-listint_t *next;
-size_t size;
+listint_t *temp;
+size_t nodes, index;
 
-if (!head)
+nodes = looped_listint_count(*head);
+
+if (nodes == 0)
+{
+for (; head != NULL && *head != NULL; nodes++)
+{
+temp = (*head)->next;
+free(*head);
+*head = temp;
+}
+}
+
+else
+{
+for (index = 0; index < nodes; index++)
+{
+temp = (*head)->next;
+free(*head);
+*head = temp;
+}
+*head = NULL;
+}
+
+head = NULL;
+
+return (nodes);
+}
+
+/**
+ * looped_listint_count - counts the number of unique nodes
+ * @h: pointer to the head of the linked list
+ *
+ * Return: 0 or number of unique nodes
+ */
+size_t looped_listint_count(listint_t *h)
+{
+listint_t *t, *i;
+size_t nodes = 1;
+
+if (h == NULL || h->next == NULL)
 return (0);
 
-for (size = 0; *head; ++size)
+t = h->next;
+i = (h->next)->next;
+
+while (i)
 {
-if (listptr_contains(listptr_head, *head))
+if (t == i)
 {
-*head = NULL;
-break;
+t = h;
+while (t != i)
+{
+nodes++;
+t = t->next;
+i = i->next;
 }
 
-if (!add_nodeptr(&listptr_head, *head))
+t = t->next;
+while (t != i)
 {
-free_listptr(listptr_head);
-exit(98);
+nodes++;
+t = t->next;
+}
+return (nodes);
 }
 
-next = (*head)->next;
-free(*head);
-*head = next;
+t = t->next;
+i = (i->next)->next;
 }
 
-free_listptr(listptr_head);
-
-return (size);
+return (0);
 }
