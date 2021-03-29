@@ -22,6 +22,13 @@ copy_file(argv[1], argv[2]);
 exit(0);
 }
 
+/**
+ * copy_file - copies the file
+ * @src: the original string
+ * @dest: string to copy
+ *
+ * Return: NULL
+ */
 void copy_file(const char *src, const char *dest)
 {
 int ofd, tfd, readed;
