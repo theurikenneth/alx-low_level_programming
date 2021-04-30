@@ -14,7 +14,7 @@ int i = 0;
 
 while (h != NULL)
 {
-i++;
+++i;
 h = h->next;
 }
 return (i);
