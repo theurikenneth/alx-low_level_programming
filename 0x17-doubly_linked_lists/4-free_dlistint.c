@@ -10,18 +10,9 @@
  */
 void free_dlistint(dlistint_t *head)
 {
-dlistint_t *freememory;
-
-if (head == NULL)
-return (NULL);
-
-freememory = head->next;
-
-while (freememory != NULL)
+if (head)
 {
+free_dlistint(head->next);
 free(head);
-head = freememory;
-freememory = freememory->next;
 }
-free(head);
 }
