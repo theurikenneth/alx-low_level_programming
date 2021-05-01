@@ -11,18 +11,8 @@
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-unsigned int nodes = 0;
-dlistint_t *temp = head;
+if (index && head)
+return (get_dnodeint_at_index(head->next, index - 1));
 
-if (head == NULL)
-return (NULL);
-
-while (temo != NULL)
-{
-nodes++;
-if (nodes - 1 == index)
-return (temp);
-temp = temp->next;
-}
-return (NULL);
+return (head);
 }
