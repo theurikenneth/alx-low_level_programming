@@ -16,7 +16,7 @@ while (h)
 {
 printf("%i\n", h->n);
 h = h->next;
-i++;
+++i;
 }
 return (i);
 }
