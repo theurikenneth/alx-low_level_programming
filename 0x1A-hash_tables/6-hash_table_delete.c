@@ -22,6 +22,6 @@ free(ptr->key);
 free(ptr->value);
 free(ptr);
 }
-ree(ht->array);
+free(ht->array);
 free(ht);
 }
