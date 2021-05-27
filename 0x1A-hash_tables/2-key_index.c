@@ -3,6 +3,7 @@
 /**
  * key_index - returns key index using djb2 hash value
  * @key: key string
+ * @size: the size of the hash table
  *
  * Return: the key index
  */
