@@ -3,31 +3,38 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_delete - Deletes a hash table
- * @ht: The hash table to frees
+ * hash_table_delete - Deletes a singly-linked list
+ * @head: a pointer to the head of the singly-linked list
  *
  * Return: Nothing!
  */
+void hash_chain_delete(hash_node_t *head)
+{
+if (head)
+    {
+hash_chain_delete(head->next);
+free(head->key);
+free(head->value);
+free(head);
+}
+}
+
+/**
+ * hash_table_delete - delete a hash table
+ * @ht: a pointer to the hash table
+ */
 void hash_table_delete(hash_table_t *ht)
 {
-hash_node_t *hnode, *tmp;
-unsigned long int i;
+hash_node_t **array = NULL;
+unsigned long int index = 0;
+unsigned long int size = 0;
 
-if (!ht)
-return;
+if (ht)
+{
+for (array = ht->array, size = ht->size; index < size; ++index)
+hash_chain_delete(array[index]);
 
-for (i = 0; i < (ht->size); i++)
-{
-hnode = ht->array[i];
-while (hnode)
-{
-tmp = hnode->next;
-free(hnode->key);
-free(hnode->value);
-free(hnode);
-hnode = tmp;
-}
-}
 free(ht->array);
 free(ht);
+}
 }
