@@ -3,28 +3,26 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_delete - Deletes a singly-linked list
+ * hash_table_delete - deletes a hash table
  * @ht: the hash table
  *
  * Return: Nothing!
  */
 void hash_table_delete(hash_table_t *ht)
 {
-hash_node_t *temp;
+hash_table_t *tmp = ht;
 unsigned long int i = 0;
-
-if (ht == NULL)
-return;
+hash_node_t *runner;
 
 while (i < ht->size)
 {
-while (ht->array[i] != NULL)
+runner = tmp->array[i];
+while (runner != NULL)
 {
-temp = ht->array[i]->next;
-free(temp->key);
-free(temp->value);
-ht->array[i] = ht->array[i]->next;
-free(temp);
+free(runner->key);
+free(runner->value);
+free(runner);
+runner = runner->next;
 }
 i++;
 }
