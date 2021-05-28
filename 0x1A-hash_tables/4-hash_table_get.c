@@ -13,20 +13,21 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-unsigned long int idx = 0;
-hash_node_t *elem = NULL;
+  hash_node_t *ptr;
+  unsigned long int index;
 
-if (ht == NULL || key == NULL)
-return (NULL);
-
-idx = key_index(unsigned char *) key, ht->size);
-elem = ht->array[idx];
-
-if (elem == NULL)
-return (NULL);
-
-while (strcmp(key, elem->key) != 0)
-elem = elem->next;
-
-return (elem->value);
+  if (ht == NULL || ht->size == 0 ||
+      key == NULL || *key == 0)
+    return (NULL);
+  index = hash_djb2((const unsigned char *) key);
+  index %= ht->size;
+  ptr = ht->array[index];
+  while (ptr != NULL)
+    {
+      if (strcmp(ptr->key, key) == 0)
+	break;
+    }
+  if (ptr == NULL)
+    return (NULL);
+  return (strdup(ptr->value));
 }
