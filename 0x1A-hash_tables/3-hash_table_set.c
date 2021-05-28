@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -13,29 +14,50 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-unsigned long int i = 0;
-hash_node_t *element = NULL, *new_node = NULL;
 
-if (ht == NULL || key == NULL || (strcmp(key, "") == 0))
-return (0);
+  unsigned long int index;
+  hash_node_t *newnode, *ptr;
+  char *newval;
 
-i = key_index(unsigned char *) key, ht->size);
-element = ht->array[i];
-
-if (element && strcmp(key, element->key) == 0)
-{
-free(element->value);
-element->value = strdup(value);
-return (1);
-}
-
-new_node = malloc(sizeof(hash_node_t));
-if (new_node == NULL)
-return (0);
-
-new_node->key = strdup(key);
-new_node->value = strdup(value);
-new_node->next = ht->array[i];
-ht->array[i] = new_node;
-return (1);
+  if (key == NULL || *key == 0 || value == NULL || ht == NULL
+      || ht->array == NULL || ht->size == 0)
+    return (0);
+  index = key_index((const unsigned char *) key, ht->size);
+  ptr = ht->array[index];
+  while (ptr != NULL)
+    {
+      if (strcmp(ptr->key, key) == 0)
+	break;
+      ptr = ptr->next;
+    }
+  if (ptr == NULL)
+    {
+      newnode = malloc(sizeof(hash_node_t));
+      if (newnode == NULL)
+	return (0);
+      newnode->key = strdup(key);
+      if (newnode->key == NULL)
+	{
+	  free(newnode);
+	  return (0);
+	}
+      newnode->value = strdup(value);
+      if (newnode->value == NULL)
+	{
+	  free(newnode->key);
+	  free(newnode);
+	  return (0);
+	}
+      newnode->next = ht->array[index];
+      ht->array[index] = newnode;
+    }
+  else
+    {
+      newval = strdup(value);
+      if (newval == NULL)
+	return (0);
+      free(ptr->value);
+      ptr->value = newval;
+    }
+  return (1);
 }
