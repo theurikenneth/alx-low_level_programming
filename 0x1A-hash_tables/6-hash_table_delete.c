@@ -20,7 +20,7 @@ while (i < ht->size)
 {
 while (ht->array[i] != NULL)
 {
-temp = ht->array[i];
+temp = ht->array[i]->next;
 free(temp->key);
 free(temp->value);
 ht->array[i] = ht->array[i]->next;
