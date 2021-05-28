@@ -4,35 +4,30 @@
 
 /**
  * hash_table_delete - Deletes a singly-linked list
- * @head: a pointer to the head of the singly-linked list
+ * @ht: the hash table
  *
  * Return: Nothing!
  */
 void hash_table_delete(hash_table_t *ht)
 {
-unsigned long int i;
-hash_node_t *node = NULL, *tmp = NULL;
+hash_node_t *temp;
+unsigned long int i = 0;
 
-for (i = 0; i < ht->size; i++)
-{
-if (ht->array[i] != NULL)
-{
-node = ht->array[i]->next;
-free(ht->array[i]->key);
-free(ht->array[i]->value);
-free(ht->array[i]);
+if (ht == NULL)
+return;
 
-while (node)
+while (i < ht->size)
 {
-tmp = node->next;
-free(node->key);
-free(node->value);
-free(node);
-node = tmp;
+while (ht->array[i] != NULL)
+{
+temp = ht->array[i];
+free(temp->key);
+free(temp->value);
+ht->array[i] = ht->array[i]->next;
+free(temp);
 }
-}
+i++;
 }
 free(ht->array);
 free(ht);
-ht = NULL;
 }
