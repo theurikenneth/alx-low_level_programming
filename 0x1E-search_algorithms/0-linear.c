@@ -1,23 +1,23 @@
 #include "search_algos.h"
+
 /**
- * linear_search - looks for value sequantially
- * @array: pointer to the first element to search
- * @size: the size of the array
- * @value: value to search for
- * Return: index of value or -1
+ * linear_search - search a value
+ * @array: array
+ * @size: size
+ * @value: value
+ * Return: The index
  */
 int linear_search(int *array, size_t size, int value)
 {
-size_t index = 0;
+size_t i;
 
-if (!array)
+if (array == NULL)
 return (-1);
-while (index < size)
+for (i = 0; i < size; i++)
 {
-printf("Value checked array[%d] = [%d]\n", (int)index, (int)array[index]);
-if (value == array[index])
-return (index);
-index++;
+printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+if (value == array[i])
+return (i);
 }
 return (-1);
 }
