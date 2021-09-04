@@ -1,34 +1,38 @@
 #include "search_algos.h"
-#include <math.h>
+
 /**
- * jump_search - searches for a value in a sorted
- * array of integers
- * @array: pointer to the first element to search
- * @size: the size of the array
- * @value: value to search for
- * Return: index of value or -1
+ * jump_search - search
+ * @array: array
+ * @size: Size
+ * @value: Value
+ * Return: The index
  */
 int jump_search(int *array, size_t size, int value)
 {
-/* stating declarations */
-int jump, x;
+int min = 0;
+int sqr = sqrt(size);
+int end = 0;
+int i;
 
-/* checks for the nulls in the array */
-if (!array)
+
+if (array == NULL || size == 0)
 return (-1);
 
-jump = sqrt(size);
-
-for (x = 0; x < (int)size && array[x] < value; x += jump)
-printf("Value checked array[%d] = [%d]\n", x, array[x]);
-
-printf("Value found between indexes [%d] and [%d]\n", x - jump, x);
-
-for (x -= jump; x < (int)size; x++)
+while (end < (int)size && array[end] < value)
 {
-printf("Value checked array[%d] = [%d]\n", x, array[x]);
-if (array[x] == value)
-return (x);
+printf("Value checked array[%d] = [%d]\n", end, array[end]);
+min = end;
+end += sqr;
+}
+printf("Value found between indexes [%d] and [%d]\n", min, end);
+if (end > ((int)size - 1))
+end = size - 1;
+
+for (i = min; i <= end && array[i] <= value; i++)
+{
+printf("Value checked array[%d] = [%d]\n", i, array[i]);
+(array[i] == value)
+return (i);
 }
 return (-1);
 }
